@@ -1,23 +1,108 @@
 <html>
+
 <head>
 	<title>Ilya Task 2</title>
 	<meta charset="utf-8">
 </head>
+
 <body>
+
 	<center><h1>Работа с XML</h1></center>
 	<br>
+
 	<h2>Краткая задача:</h2>
-	<p>Создать класс, в котором будет реализована валидация XML документов.</p>
+	<p>Создать класс/пакет, в котором будет реализована валидация XML документов.</p>
+
 	<h2>Техническое задание:</h2>
-	<div>Класс должен обладать функциональность валидации XML файлов. <br>В случае валидности - выдавать сообщение о валидности файла.<br> 
-	В случае невалидности выдавать осмысленное сообщение о невалидности с номером строки и конкретным тэгом в котором допущена ошибка, 
-	а так же иметь поле/return значение функции, типа boolean: true - валидный, false - невалидный.</div>
-	<h2>Пояснения:</h2>
-	<div><i><b>Валидация</b></i> - проверка XML файлов на закрытость тэгов, во избежание <b>SAXException</b>.<br></div>
+	<div>Класс/пакет должен обладать функциональностью валидации XML файлов. <br>В случае валидности - выдавать осмысленное сообщение о валидности файла.<br>
+	В случае невалидности выдавать осмысленное сообщение о невалидности с номером строки в документе и конкретным тэгом в котором допущена ошибка,
+	а так же иметь поле/return значение функции, типа boolean: true - валидный, false - невалидный.<br>	</div>
+
 	<br>
-	<h2>Пример:</h2>
-	<p>&lt;customized&gt;d= a&lt;customized&gt; - <b>Не валидно</b>.</p>
-	<p>&lt;customized&gt;d= a&lt;/customized&gt; - <b>Валидно</b>.</p>
+	<br>
+	<table border="2px">
+		<tr>
+			<td colspan=3 align="center"><b>Список проверок для валидации</b></td>
+		</tr>
+		<tr>
+			<td align="center"><b>Проверка</b></td>
+			<td align="center"><b>Описание</b></td>
+			<td align="center"><b>Пример</b></td>
+		</tr>
+		<tr>
+			<td align="center"><b>Проверка на закрытость тэгов</b></td>
+			<td align="center">Каждый тэг дожне быть закрыт, иначе документ не валиден</td>
+			<td align="center">&lt;customized&gt;d= a&lt;/customized&gt; - валидно;<br>
+			&lt;customized&gt;d= a&lt;customized&gt; - не валидно.</td>
+		</tr>
+		<tr>
+			<td align="center"><b>Проверка на разрешенные тэги</b></td>
+			<td align="center">Если в документе присутствуют тэги которые не разрешены явным образом , то документ не валиден</td>
+			<td align="center">&lt;customized&gt;d= a&lt;/customized&gt; - валидно;<br>
+			&lt;dream&gt;d= a&lt;/dream&gt; - не валидно.</td>
+		</tr>
+		<tr>
+			<td align="center"><b>Проверка на разрешенные атрибуты</b></td>
+			<td align="center">Некоторые тэги имеют атрибуты, если атрибуты тэга не разрешены явным образом, то документ не валиден<br>
+			<b>Примечание:</b> аттрибут может отсутствовать, т.е. аттрибуты не являются обязательными</td>
+			<td align="center">&lt;rule library="INSTJCL"&gt; - валидно;<br>
+			&lt;rule foo="bar"&gt; - не валидно.</td>
+		</tr>
+		<tr>
+			<td align="center"><b>Проверка на корректность контекста</b></td>
+			<td align="center">Некоторые тэги могут могут быть использованы только внутри других тэгов, если они находятся вне них, то документ не валиден</td>
+			<td align="center">&lt;rulesList&gt;&lt;rule library="INSTJCL"&gt;&lt;/rule&gt;&lt;/rulesList&gt; - валидно;<br>
+			&lt;rule library="INSTJCL"&gt;&lt;rulesList&gt;&lt;/rulesList&gt; - не валидно.</td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<table border="2px">
+		<tr>
+			<td colspan=3 align="center"><b>Список разрешенных тэгов</b></td>
+		</tr>
+		<tr>
+			<td align="center"><b>Имя тэга</b></td>
+			<td align="center"><b>Parent элемент</b></td>
+			<td align="center"><b>Аттрибуты тэга</b></td>
+		</tr>
+		<tr>
+			<td align="center"><b>rulesList</b></td>
+			<td align="center">-</td>
+			<td align="center">-</td>
+		</tr>
+		<tr>
+			<td align="center"><b>rule</b></td>
+			<td align="center">rulesList</td>
+			<td align="center">library, application, geography</td>
+		</tr>
+		<tr>
+			<td align="center"><b>original</b></td>
+			<td align="center">rule</td>
+			<td align="center">-</td>
+		</tr>
+		<tr>
+			<td align="center"><b>customized</b></td>
+			<td align="center">rule</td>
+			<td align="center">-</td>
+		</tr>
+		<tr>
+			<td align="center"><b>member</b></td>
+			<td align="center">rule</td>
+			<td align="center">-</td>
+		</tr>
+		<tr>
+			<td align="center"><b>exceptMember</b></td>
+			<td align="center">rule</td>
+			<td align="center">-</td>
+		</tr>
+	</table>
+
+	<h2>Пояснения:</h2>
+	<div><i><b>Валидация</b></i> - проверка XML файлов на корректность синтаксиса.</div>
+	<div><i><b>Parent элемент</b></i> - тот тэг внутри которого должен находиться данный тэг.</div>
+
+
 	<h2>Условия:</h2>
 	<div>
 	<ol>
