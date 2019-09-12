@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rulesList>
+    <rule library="INSTJCL">
+        <original>A = asd</original>
+        <member>#APPL_NAME#$INS6</member>
+        <customized>d= a</customized>
+        <exceptMember>EXCEPT#APPL_NAME#$INS6</exceptMember>
+    </rule>
+</rulesList>
