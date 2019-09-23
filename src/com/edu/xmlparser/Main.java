@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Properties properties = new Properties();
         properties.load(new FileInputStream(System.getProperty("user.dir") + File.separator + "src\\resources\\ilya.properties"));
-//        System.out.println(properties.getProperty("jobs"));
+        System.out.println(properties.getProperty("jobs"));
         System.out.println("XML validates against Schema.xsd. Result: " + validateXMLSchema());
     }
 
@@ -33,10 +33,10 @@ public class Main {
         try {
             DocumentBuilderFactory factoryDoc = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factoryDoc.newDocumentBuilder();
-            document = builder.parse(new File(System.getProperty("user.dir") + File.separator + "XML directory\\rulesXML.xml"));
+            document = builder.parse(new File(System.getProperty("user.dir") + File.separator + "XML directory\\commentRules.xml"));
 
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = factory.newSchema(new File(System.getProperty("user.dir") + File.separator + "XML directory\\rulesSchema.xsd"));
+            Schema schema = factory.newSchema(new File(System.getProperty("user.dir") + File.separator + "XML directory\\commentRulesSchema.xsd"));
 
             Validator validator = schema.newValidator();
             validator.validate(new DOMSource(document));

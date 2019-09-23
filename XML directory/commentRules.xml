@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rulesList>
+	<rule library="INSTJCL">
+		<commentDelimiter>//*</commentDelimiter>
+		<delimiterSubstitute>//</delimiterSubstitute>
+		<testCommentWord>REST</testCommentWord>
+		<prodCommentWord>PROD2</prodCommentWord>
+	</rule>
+	<rule library="">
+		<commentDelimiter>--</commentDelimiter>
+		<delimiterSubstitute>  </delimiterSubstitute>
+		<testCommentWord>TEST</testCommentWord>
+		<prodCommentWord>PROD</prodCommentWord>
+	</rule>
+</rulesList>

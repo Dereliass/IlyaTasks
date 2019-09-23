@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a3b554d1-e296-4c1a-b046-3a0945aad573" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XML directory/rulesSchema.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/XML directory/rulesSchema.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IlyaTask XML/com/edu/xmlparser/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IlyaTask XML/com/edu/xmlparser/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/edu/xmlparser/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/edu/xmlparser/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +26,7 @@
   <component name="ProjectId" id="1QbNF1ahE6YAgHUkc8tZEgP4OMp" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MVSPackageCustomizer" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

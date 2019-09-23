@@ -3,17 +3,15 @@
   <xs:element name="rulesList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="rule">
+        <xs:element name="rule" maxOccurs="unbounded">
           <xs:complexType>
             <xs:all>
-              <xs:element type="xs:string" name="original"/>
-              <xs:element type="xs:string" name="customized"/>
-              <xs:element type="xs:string" name="member"/>
-              <xs:element type="xs:string" name="exceptMember"/>
+              <xs:element type="xs:string" name="commentDelimiter"/>
+              <xs:element type="xs:string" name="delimiterSubstitute"/>
+              <xs:element type="xs:string" name="testCommentWord"/>
+              <xs:element type="xs:string" name="prodCommentWord"/>
             </xs:all>
             <xs:attribute type="xs:string" name="library" use="optional"/>
-            <xs:attribute type="xs:string" name="application" use="optional"/>
-            <xs:attribute type="xs:string" name="geography" use="optional"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
